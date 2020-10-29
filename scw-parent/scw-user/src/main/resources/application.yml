@@ -1,0 +1,44 @@
+server:
+  port: 7000
+
+
+spring:
+  application:
+    name: SCW-USER
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/atcrowdfunding?serverTimezone=GMT%2B8&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: myhost
+    port: 2728  #默认端口 6379
+    password: Lijing116
+    # RedisTemplate  key 和 value 的类型是Object类型
+    # StringRedisTemplate  key和value必须是String 类型，通过JSON转换
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:com/offcn/user/mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka/
+
+logging:
+  file:
+    path: /Users/dushengyuan/pro/log/scw-user  #存放日志的路径
+  level:
+    com:
+      offcn: debug
+
+sms:
+  host: http://dingxin.market.alicloudapi.com
+  path: /dx/sendSms
+  method: POST
+  appcode: f44b9437185349ad89f5504b8e01f393
+
